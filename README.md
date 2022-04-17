@@ -4,7 +4,8 @@ This is a Todo List and Notes application in one that aims to help students with
 
 ## Features
 - Add, remove, edit and view Todo works and Notes
-- Has the ability to fetch Google Classroom classwork information using Google Classroom API 
+- Has the ability to fetch Google Classroom classwork information using Google Classroom API
+- Has the ability to redirect user to a chosen Google Classroom classwork
 
 ## Requirements
 Java version 8 or higher.
