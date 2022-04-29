@@ -22,6 +22,7 @@ import java.io.File;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.List;
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -347,13 +348,14 @@ public class TodoListMainFrame extends javax.swing.JFrame {
         Title.setPreferredSize(new java.awt.Dimension(470, 16));
         NotePanel.add(Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 300, 16));
 
+        NoteScroller.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
         NoteScroller.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
         Note.setBackground(new java.awt.Color(244, 252, 217));
         Note.setColumns(20);
         Note.setLineWrap(true);
         Note.setRows(5);
-        Note.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        Note.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
         Note.setName(""); // NOI18N
         NoteScroller.setViewportView(Note);
 
@@ -859,6 +861,10 @@ public class TodoListMainFrame extends javax.swing.JFrame {
     }
     
     public void displayNotes(String sentTitle){
+        Note.setVisible(true);
+        SaveNote.setVisible(true);
+        DeleteNote.setVisible(true);
+        NoteScroller.setVisible(true);
         String title = sentTitle;
         this.MainPanel.setSelectedComponent(NotesPanel);
         this.setVisible(true);
@@ -932,6 +938,10 @@ public class TodoListMainFrame extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "An error occured while trying to refresh notes! \n "+e, "Error!", JOptionPane.PLAIN_MESSAGE);
         }
+        Note.setVisible(false);
+        SaveNote.setVisible(false);
+        DeleteNote.setVisible(false);
+        NoteScroller.setVisible(false);
     }
     
     private void refreshAllList(){
